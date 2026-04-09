@@ -21,7 +21,18 @@ export class VendaService {
       const buscarStatus = status === '' || venda.status === status;
       return buscarNome && buscarStatus;
     });
+  }
 
+  calcularValor(vendas: Venda[]){
+    const concluido = vendas.filter(v => {
+      const s = v.status.toLowerCase().trim();
+      return s === 'concluído';
+    });
+
+    const valorTotal = concluido.reduce((acc, curr) => acc + (Number(curr.valor) || 0), 0);
+    const valorTicketMedio = concluido.length > 0 ? valorTotal / concluido.length : 0;
+
+    return {valorTotal, valorTicketMedio};
   }
 
 }

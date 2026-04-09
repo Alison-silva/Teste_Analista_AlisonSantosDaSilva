@@ -14,12 +14,16 @@ export class AppComponent implements OnInit{
   filtroNome: string = '';
   filtroStatus: string = '';
 
+  valorTotal: number = 0;
+  ticketMedio: number = 0;
+
   constructor(private vendaService: VendaService){}
 
   ngOnInit() {
     this.vendaService.listarVendas().subscribe(dados =>{
       this.jsonVendas = dados;
       this.vendasFiltro = dados;
+      this.atualizarDashboard();
     });
   }
 
@@ -31,6 +35,10 @@ export class AppComponent implements OnInit{
     );
   }
 
-
+  atualizarDashboard(){
+    const valores = this.vendaService.calcularValor(this.jsonVendas);
+    this.valorTotal = valores.valorTotal;
+    this.ticketMedio = valores.valorTicketMedio;
+  }
 
 }
