@@ -17,6 +17,9 @@ export class AppComponent implements OnInit{
   valorTotal: number = 0;
   ticketMedio: number = 0;
 
+  exibirPainel: boolean = false;
+  vendaPainel: Venda | null = null;
+
   constructor(private vendaService: VendaService){}
 
   ngOnInit() {
@@ -39,6 +42,16 @@ export class AppComponent implements OnInit{
     const valores = this.vendaService.calcularValor(this.jsonVendas);
     this.valorTotal = valores.valorTotal;
     this.ticketMedio = valores.valorTicketMedio;
+  }
+
+  abrirDetalhe(venda: Venda){
+    this.vendaPainel = venda;
+    this.exibirPainel = true;
+  }
+
+  fechaDetalhe(){
+    this.exibirPainel = false;
+    this.vendaPainel = null;
   }
 
 }
