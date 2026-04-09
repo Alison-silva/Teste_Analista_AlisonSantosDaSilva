@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.status-cancelada {
+  @apply bg-red-50 text-red-900 ;
+  td { @apply border-red-100; }
+}
