@@ -1,27 +1,36 @@
-# TesteAnalistaalisonsantosdasilva
+<h1 align="center">
+  Teste_Analista
+</h1>
+<br>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+## Descrição
 
-## Development server
+- Interface de Gestor de Vendas (Frontend (Angular))
+- SQL – Inteligência de Dados e Performance
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Instruções Banco de dados
 
-## Code scaffolding
+- As consultas SQL podem ser encontradas na pasta `sql_inteligencia_dados`:
+- `relatorio_performance_cliente.sql`
+- `clientes_inativos.sql`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Frontend (Angular) - Tecnologias Utilizadas 
 
-## Build
+- **Framework:** Angular CLI 14.1.1
+- **Estilização:** Tailwind CSS
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Como rodar o Frontend
+1. Instale as dependências: npm install
+2. Inicie o servidor: ng serve
+3. Acesse em: http://localhost:4200
 
-## Running end-to-end tests
+## OBS
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Caso ocorram erros de tipagem ou versão do ambiente ao rodar o npm install, utilize o seguinte comando na raiz do projeto:
 
-## Further help
+```
+npm install --save-dev @types/node@16 typescript@4.8.4
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
