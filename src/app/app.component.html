@@ -6,25 +6,23 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
   
-    <div class="bg-white p-6 rounded-xl">
-      <div class="flex flex-col items-center justify-center text-center">
-        <div>
-          <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Valor Total</p>
-          <h2 class="text-2xl font-bold text-gray-800">
+    <div class="bg-white p-6 pl-4 rounded-xl border-l-8 border-blue-500 ring-1 ring-gray-200 shadow-sm">
+      <div class="flex flex-col items-start justify-center text-left">
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Valor Total</p>
+          <h2 class="text-3xl font-extrabold text-gray-800">
             {{ valorTotal | currency:'BRL' }}
           </h2>
-        </div>
+          <span class="text-black text-xs font-medium mt-2">Vendas Concluídas</span>
       </div>
     </div>
 
-    <div class="bg-white p-6 rounded-xl">
-      <div class="flex flex-col items-center justify-center text-center">
-        <div>
-          <p class="text-sm font-medium text-gray-500 uppercase tracking-wider">Ticket Médio</p>
-          <h2 class="text-2xl font-bold text-gray-800">
+    <div class="bg-white p-6 pl-4 rounded-xl border-l-8 border-green-500 ring-1 ring-gray-200 shadow-sm">
+      <div class="flex flex-col items-start justify-center text-left">
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Ticket Médio</p>
+          <h2 class="text-3xl font-extrabold text-gray-800">
             {{ ticketMedio | currency:'BRL' }}
           </h2>
-        </div>
+          <span class="text-black text-xs font-medium mt-2">Média por Venda</span>
       </div>
     </div>
 
@@ -66,7 +64,14 @@
               
               <td class="px-6 py-4 font-medium text-gray-900">{{ venda.cliente }}</td>
               <td class="px-6 py-4 font-semibold text-gray-700">{{ venda.valor | currency:'BRL' }}</td>
-              <td class="px-6 py-4 text-center"> {{ venda.status }}</td>
+              <td class="px-6 py-4 text-center"> 
+                <span class="inline-block px-4 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase shadow-sm"
+                  [ngClass]="{
+                  'bg-green-100 text-green-700 border-green-200': venda.status === 'Concluído',
+                  'bg-red-100 text-red-700 border-red-200': venda.status === 'Cancelado',
+                  'bg-yellow-100 text-yellow-700 border-yellow-200': venda.status === 'Pendente'
+                  }">{{ venda.status }}</span>
+              </td>
               <td class="px-6 py-4 text-center">
                 <button 
                   class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded rounded-full">
